@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>研究タスクボード</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Lab Exercise</p>
+          <h1>研究タスクボード</h1>
+        </div>
+        <p class="summary" id="summary">0件のタスク</p>
+      </header>
+
+      <section class="composer" aria-label="タスク追加">
+        <input id="taskInput" type="text" maxlength="80" placeholder="例: 先行研究を3本読む">
+        <select id="statusInput" aria-label="初期状態">
+          <option value="todo">未着手</option>
+          <option value="doing">進行中</option>
+          <option value="done">完了</option>
+        </select>
+        <button id="addButton" type="button">追加</button>
+      </section>
+
+      <section class="board" aria-label="タスク一覧">
+        <article class="column" data-status="todo">
+          <h2>未着手</h2>
+          <ul class="task-list" id="todoList"></ul>
+        </article>
+        <article class="column" data-status="doing">
+          <h2>進行中</h2>
+          <ul class="task-list" id="doingList"></ul>
+        </article>
+        <article class="column" data-status="done">
+          <h2>完了</h2>
+          <ul class="task-list" id="doneList"></ul>
+        </article>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <li class="task-card">
+        <p class="task-title"></p>
+        <div class="task-actions">
+          <select class="task-status" aria-label="状態変更">
+            <option value="todo">未着手</option>
+            <option value="doing">進行中</option>
+            <option value="done">完了</option>
+          </select>
+          <button class="delete-button" type="button">削除</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
